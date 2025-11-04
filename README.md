@@ -9,8 +9,8 @@ This project demonstrates how to build a Bluetooth-controlled RC car using an Ar
 * 12V Battery Pack
 * Connecting Wires and Chassis
 
-⚙️ Circuit Diagram:
-[View Circuit Diagram](CODE_FOR_RC_CAR)
+⚙️ Arduino Code:
+[View Code:](CODE_FOR_RC_CAR)
 
 🧠 Working Principle:
 * The HC-05 module receives commands via Bluetooth from a mobile app.
@@ -21,6 +21,9 @@ This project demonstrates how to build a Bluetooth-controlled RC car using an Ar
 * Dual motor driver setup for differential steering
 * Headlight indicator
 * Simple, low-cost design
+
+Circuit Diagram:
+[View Circuit Diagram](
 
 📜 How to Use:
 * Connect the circuit as shown in the diagram.
@@ -35,4 +38,4 @@ This project demonstrates how to build a Bluetooth-controlled RC car using an Ar
 
 🖋️ Author:
 KOWSHIN.V
-📫 GitHub Profile
+📫 GitHub Profile: https://github.com/kowshinV
