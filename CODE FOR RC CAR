@@ -1,0 +1,113 @@
+// Bluetooth Controlled RC Car using Arduino UNO + L298N + HC-05
+// --------------------------------------------------------------
+// Commands from Bluetooth app (you can use any Bluetooth controller):
+// F = Forward
+// B = Backward
+// L = Left
+// R = Right
+// S = Stop
+// H = Toggle Headlight
+
+// -------------------- Pin Definitions --------------------
+#define ENA 9       // Enable pin for Left Motors (PWM)
+#define IN1 8       // Left Motor Forward
+#define IN2 7       // Left Motor Backward
+#define ENB 10      // Enable pin for Right Motors (PWM)
+#define IN3 6       // Right Motor Forward
+#define IN4 5       // Right Motor Backward
+#define LED 4       // Headlight LED
+
+char command;       // Variable to store incoming Bluetooth command
+bool headlight = false; // LED state tracker
+
+void setup() {
+  // Motor pins setup
+  pinMode(ENA, OUTPUT);
+  pinMode(ENB, OUTPUT);
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  pinMode(IN3, OUTPUT);
+  pinMode(IN4, OUTPUT);
+  pinMode(LED, OUTPUT);
+  
+  // Start Serial communication with HC-05 (Bluetooth)
+  Serial.begin(9600);
+  
+  // Initially stop the car
+  stopCar();
+  digitalWrite(LED, LOW);
+  
+  Serial.println("Bluetooth RC Car Ready");
+}
+
+// -------------------- Main Loop --------------------
+void loop() {
+  if (Serial.available() > 0) {
+    command = Serial.read();
+    command = toupper(command);  // Convert to uppercase for safety
+    Serial.print("Command: ");
+    Serial.println(command);
+    moveCar(command);
+  }
+}
+
+// -------------------- Movement Control --------------------
+void moveCar(char cmd) {
+  switch(cmd) {
+    case 'F': forward(); break;
+    case 'B': backward(); break;
+    case 'L': left(); break;
+    case 'R': right(); break;
+    case 'S': stopCar(); break;
+    case 'H': toggleHeadlight(); break;
+    default: stopCar(); break;
+  }
+}
+
+void forward() {
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+  digitalWrite(IN3, HIGH);
+  digitalWrite(IN4, LOW);
+  analogWrite(ENA, 200);
+  analogWrite(ENB, 200);
+}
+
+void backward() {
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, HIGH);
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, HIGH);
+  analogWrite(ENA, 200);
+  analogWrite(ENB, 200);
+}
+
+void left() {
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, HIGH);
+  digitalWrite(IN3, HIGH);
+  digitalWrite(IN4, LOW);
+  analogWrite(ENA, 200);
+  analogWrite(ENB, 200);
+}
+
+void right() {
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, HIGH);
+  analogWrite(ENA, 200);
+  analogWrite(ENB, 200);
+}
+
+void stopCar() {
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, LOW);
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, LOW);
+}
+
+void toggleHeadlight() {
+  headlight = !headlight;
+  digitalWrite(LED, headlight ? HIGH : LOW);
+}
