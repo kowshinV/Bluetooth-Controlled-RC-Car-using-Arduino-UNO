@@ -10,7 +10,7 @@ This project demonstrates how to build a Bluetooth-controlled RC car using an Ar
 * Connecting Wires and Chassis
 
 ⚙️ Circuit Diagram:
-(Replace the above link with the actual image link from your GitHub repository.)
+[View Circuit Diagram](CODE_FOR_RC_CAR)
 
 🧠 Working Principle:
 * The HC-05 module receives commands via Bluetooth from a mobile app.
@@ -35,6 +35,4 @@ This project demonstrates how to build a Bluetooth-controlled RC car using an Ar
 
 🖋️ Author:
 KOWSHIN.V
-
-Your Name
 📫 GitHub Profile
