@@ -22,7 +22,7 @@ This project demonstrates how to build a Bluetooth-controlled RC car using an Ar
 * Headlight indicator
 * Simple, low-cost design
 
-# Circuit Diagram:
+#Circuit Diagram:
 [View Circuit Diagram](RC_car.jpg)
 
 📜 How to Use:
@@ -31,7 +31,7 @@ This project demonstrates how to build a Bluetooth-controlled RC car using an Ar
 * Pair the HC-05 module with your phone (default password: 1234).
 * Use a Bluetooth controller app to send movement commands.
 
- # Modal of my Project:
+#Modal of my Project:
   [View Modal](rc.jpg)
 
 🚀 Future Improvements:
