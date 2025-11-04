@@ -23,7 +23,7 @@ This project demonstrates how to build a Bluetooth-controlled RC car using an Ar
 * Simple, low-cost design
 
 Circuit Diagram:
-[View Circuit Diagram](
+[View Circuit Diagram](RC_car.jpg)
 
 📜 How to Use:
 * Connect the circuit as shown in the diagram.
@@ -37,5 +37,4 @@ Circuit Diagram:
 * Add a rechargeable Li-ion battery pack.
 
 🖋️ Author:
-KOWSHIN.V
-📫 GitHub Profile: https://github.com/kowshinV
+KOWSHIN.V, https://github.com/kowshinV
